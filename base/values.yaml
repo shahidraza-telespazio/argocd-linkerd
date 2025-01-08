@@ -1,5 +1,7 @@
+proxyInit:
+  runAsRoot: true
 proxy:
-  defaultInboundPolicy: "audit"
+  defaultInboundPolicy: "cluster-authenticated"
   nativeSidecar: true
 identity:
   # -- If the linkerd-identity-trust-roots ConfigMap has already been created
