@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - linkerd-tls-cert.yaml
+  - linkerd-bundle.yaml
+
+helmCharts:
+  - name: linkerd-crds
+    repo: https://helm.linkerd.io/edge
+    releaseName: linkerd-crds
+    namespace: linkerd
+    version: 2024.11.8
+
+  - name: linkerd-control-plane
+    repo: https://helm.linkerd.io/edge
+    releaseName: linkerd-control-plane
+    namespace: linkerd
+    version: 2024.11.8
+    valuesFile: values.yaml
+
+  - name: linkerd-viz
+    repo: https://helm.linkerd.io/edge
+    releaseName: linkerd-viz
+    namespace: linkerd
+    version: 2024.11.8
+    valuesFile: values-viz.yaml
