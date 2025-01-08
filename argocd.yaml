@@ -11,7 +11,7 @@ spec:
     path: base
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: monitoring
+    namespace: linkerd
   syncPolicy:
     automated:
       prune: false
